@@ -7,19 +7,32 @@
 
 int main(){
 
-  char input[LIMIT];
-  char c;
-  int i;
 
+  
+ 
+  char input[LIMIT];
+  while(1){
+
+
+    //getting input from user
+    char c;
+    int i;
     printf(">");
   
     for(i = 0; (c = getchar()) != '\n' && i < LIMIT - 1; i++){
       input[i] = c;
     }
 
-    printf("%s\n", input);
+  
+
+
+  //clearing char array for next input
+  for(i; i>=0; i--){
     input[i] = '\0';
+  }
     
+    
+  }
   
 }
 
@@ -210,6 +223,8 @@ char **tokenize(char* str){
 
 void print_tokens(char **tokens){
 
+  int count = 0;
+  
 
 
 
