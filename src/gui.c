@@ -1,13 +1,17 @@
 #include <stdio.h>
+#define LIMIT 100
+char arr[LIMIT];
 
 int main(){
 
-  printf(">");
-  
-  char str[30];
-  scanf("%[^\n]%*c", str);
+  int i = 0;
+  for(char input_char; (input_char = getchar())!= '\n' && i < LIMIT; i++){
 
-  printf("%s\n", str);
-  
-  return 0;
+    arr[i] = input_char;
+    putchar(input_char);
+
+
+  }
+  printf("\n");
+
 }
