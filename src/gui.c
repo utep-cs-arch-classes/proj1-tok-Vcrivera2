@@ -116,28 +116,86 @@ char *word_end(char *str){ //to for space character after end of word
 
 
 
+//counts words using word start and word end func
 int count_words(char *str){
 
-
+  //initialize a variable for pointer and for count of words
   char *x = str;
   int count =0;
 
+  //end condition is if we receive a finished word
   while(*x != '\0'){
 
+    //check to see if we have a number first if yes increment count
+    //and use word end func to skip ahead to spaces
     if(space_char(*x) == 0){
       x = word_end(x);
       count++;
     }
+
+    //if we have spaces we want to skip to the beginning of a word
+    // use word start
     if(space_char(*x) == 1){
       x= word_start(x);
     }
+
+    //if we are at the end icrement the address to get to the end
     else{
       x++;
     }
 
+    //return the numbers of words in the string
     return count;
     
   }
 
 }
 
+
+//allocate memory for the new string then make a copy
+char *copy_str(char *inStr, short len){
+
+  //using malloc to allocate memory for characters
+  //for the size of len
+  char *x = malloc(sizeof(char) * (len + 1));
+
+  //looping through the length of the initial string
+  //to create the copy using each character in the inStr
+  int i = 0;
+  while(*inStr != '\0' && i < len){
+
+    x[i] = *inStr;
+    inStr++;
+    i++;
+
+  }
+
+  //just in case string is empty
+  if(*inStr == '\0'){
+
+    x[i] = *inStr;
+  }
+
+  return x;
+
+}
+
+
+void print_tokens(char **toks){
+
+
+
+
+}
+
+
+char *get_token(char **toks, int id){
+
+
+}
+
+
+void free_tokens(char **toks){
+
+
+}
