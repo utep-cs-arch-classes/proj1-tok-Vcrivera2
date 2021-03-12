@@ -180,8 +180,35 @@ char *copy_str(char *inStr, short len){
 
 }
 
+char **tokenize(char* str){
 
-void print_tokens(char **toks){
+  int tokencount = count_words(str);
+  char *x = str;
+
+  char **tokens = (char **) malloc(sizeof(char*) * (tokencount+1));
+
+  
+  int position = 0;
+  short len = 0;
+
+  while (position < tokencount && *x != '\0'){
+
+    for( char *newchar = x; space_char(*newchar) != 1; newchar++){
+      len++;
+    }
+
+    tokens[position] = copy_str(x, len);
+
+    x += len;
+
+    
+    
+  }
+
+}
+
+
+void print_tokens(char **tokens){
 
 
 
@@ -189,7 +216,7 @@ void print_tokens(char **toks){
 }
 
 
-char *get_token(char **toks, int id){
+char *get_token(char **tokens, int id){
 
 
 }
